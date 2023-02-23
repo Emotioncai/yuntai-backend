@@ -27,7 +27,7 @@ public class PermissionHelper {
      * 递归查找子节点
      */
     public static Permission findChildren(Permission treeNode, List<Permission> treeNodes) {
-        treeNode.setChildren(new ArrayList<>());
+//        treeNode.setChildren(new ArrayList<>());
 
         for (Permission it : treeNodes) {
             if (Objects.equals(treeNode.getId(), it.getParentId())) {
