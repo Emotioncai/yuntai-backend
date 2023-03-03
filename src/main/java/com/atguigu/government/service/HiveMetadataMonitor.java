@@ -12,9 +12,9 @@ public class HiveMetadataMonitor {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection hiveMetastoreConnection = DriverManager.getConnection(
-                    "jdbc:mysql://150.158.58.165:13307/hcatalog?useSSL=false",
+                    "jdbc:mysql://150.158.58.165:13307/hive?useSSL=false",
                     "root",
-                    "cpf85963286."
+                    "cpf85963286"
             );
             PreparedStatement selectTableNameDatabaseName = hiveMetastoreConnection.prepareStatement("SELECT TBLS.TBL_NAME, DBS.NAME, TBLS.TBL_ID FROM TBLS INNER JOIN DBS ON TBLS.DB_ID = DBS.DB_ID");
             ResultSet resultSet = selectTableNameDatabaseName.executeQuery();
@@ -67,7 +67,7 @@ public class HiveMetadataMonitor {
             Connection governanceDetailConnection = DriverManager.getConnection(
                     "jdbc:mysql://150.158.58.165:13307/yuntai_government?useSSL=false",
                     "root",
-                    "cpf85963286.");
+                    "cpf85963286");
             //删除hive元数据质量表中的所有数据
             PreparedStatement preparedStatement = governanceDetailConnection.prepareStatement("DELETE FROM hive_metadata_monitor");
             preparedStatement.execute();
